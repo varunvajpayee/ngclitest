@@ -1,0 +1,8 @@
+Package.json: Project dependencies.
+Angular Cli: Cli specific settings like root directory, assets etc.
+e2e: It is also testing related.
+
+Need to learn about more
+
+typings.d.ts
+polyfills.ts (used by zone.js)

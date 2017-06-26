@@ -19,9 +19,19 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "./assets/vendor/bootstrap/css/bootstrap.min.css",
+        "./assets/vendor/metisMenu/metisMenu.min.css",
+        "./assets/vendor/font-awesome/css/font-awesome.min.css",
+        "./assets/dist/css/sb-admin-2.css",
+        "./assets/dist/css/sbadmin2-sidebar-toggle.css"
       ],
-      "scripts": [],
+      "scripts": [
+              "./assets/vendor/jquery/jquery.min.js",
+              "./assets/vendor/bootstrap/js/bootstrap.min.js",
+              "./assets/vendor/metisMenu/metisMenu.min.js",
+              "./assets/dist/js/sb-admin-2.js"
+              ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
