@@ -11,6 +11,7 @@ import { LayoutModule} from './layout/layout.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {CourseModule} from './course/course.module';
 import {UserModule} from './user/user.module';
+import {ArticleModule} from './article/article.module';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helper/fake-backend';
@@ -31,6 +32,7 @@ import { BaseRequestOptions } from '@angular/http';
     DashboardModule,
     CourseModule,
     UserModule,
+    ArticleModule,
     routing
   ],
   providers: [
