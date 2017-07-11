@@ -17,12 +17,13 @@ import {ArticleModule} from './article/article.module';
 import { fakeBackendProvider } from './helper/fake-backend';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,PageNotFoundComponent
+    AppComponent,PageNotFoundComponent, ContactusComponent
   ],
   imports: [
     BrowserModule,

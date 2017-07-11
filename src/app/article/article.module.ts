@@ -6,14 +6,11 @@ import { ArticleService } from './article.service';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { EditArticleComponent } from './edit-article/edit-article.component';
-import { MaterializeDirective } from "angular2-materialize";
 
 
 export const articleRoutes: Routes = [
   { path: 'articles', component: ArticleComponent },
-  { path: 'article/new', component: NewArticleComponent },
-  { path: 'article/edit/:id', component: EditArticleComponent }
+  { path: 'article/new', component: NewArticleComponent }
 ]
 
 @NgModule({
@@ -27,9 +24,7 @@ export const articleRoutes: Routes = [
   ],
   declarations: [
     ArticleComponent,
-    NewArticleComponent,
-    EditArticleComponent,
-    MaterializeDirective
+    NewArticleComponent
   ],
   providers: [
     ArticleService

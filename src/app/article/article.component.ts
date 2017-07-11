@@ -8,9 +8,9 @@ import { ArticleService } from './article.service';
 })
 export class ArticleComponent implements OnInit {
 
-  private articles: any;
+  articles: any;
 
-  constructor(private articleService: ArticleService) { 
+  constructor(private articleService: ArticleService) {
     articleService.getArticles().subscribe(
         articles => {
           this.articles = articles.lessons.data;

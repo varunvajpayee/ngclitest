@@ -2,6 +2,7 @@ import { Routes,RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import {ModuleWithProviders} from "@angular/core";
 
+
 export const layoutRoutes: Routes = [
   {
     path: '',

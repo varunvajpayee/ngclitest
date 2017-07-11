@@ -4,14 +4,14 @@ export class Article {
     public id?: number,
     public title?: string,
     public body?: string,
-    public desc?: string,
-    public slug?: string,
+    public user?: string,
+    public category?: string,
   ) {
     this.id = id;
     this.title = title;
     this.body = body;
-    this.desc = desc;
-    this.slug = slug;
+    this.user = user;
+    this.category = category;
   }
 
 }
