@@ -8,7 +8,7 @@ export const appRoutes: Routes = [
     loadChildren:'app/layout/layout.module#LayoutModule'
     , pathMatch: 'full'
   },{
-    path:'contactus',
+    path:'contactus1',
     component:ContactusComponent
   },
   { path: '**', component: PageNotFoundComponent }

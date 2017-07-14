@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Article } from './article';
-
+import { environment } from '../../environments/environment';
 @Injectable()
 export class ArticleService {
 
@@ -22,10 +22,10 @@ export class ArticleService {
 
   saveArticle(article:Article) {
     let bodyString = JSON.parse(JSON.stringify(article)); // Stringify payload
-    let headers = new Headers([{ 'Content-Type': 'application/json' }]);//,{ 'Access-Control-Allow-Origin': '*' },{ 'Access-Control-Allow-Method': 'GET, POST, PATCH, PUT, DELETE, OPTIONS' },{ 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token' }]); // ... Set content type to JSON
+    let headers = new Headers([{ 'Content-Type': 'application/json' }]);
     let options = new RequestOptions({ headers: headers }); // Create a request option
 
-    return this.http.post("http://localhost:80/forum/saveTopic",bodyString,options)
+    return this.http.post(environment.api_url+"/forum/saveTopic",bodyString,options)
       .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
       .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
   }

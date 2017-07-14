@@ -1,4 +1,4 @@
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
+import { Http,Headers, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
@@ -125,9 +125,10 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
 
       // pass through any requests not handled above
       let realHttp = new Http(realBackend, options);
+      //let headers = new Headers([{'Content-Type': 'application/json' }]);
       let requestOptions = new RequestOptions({
         method: connection.request.method,
-        headers: connection.request.headers,
+        headers: new Headers([{'Content-Type': 'application/json' }]),
         body: connection.request.getBody(),
         url: connection.request.url,
         withCredentials: connection.request.withCredentials,

@@ -14,8 +14,8 @@ import {UserModule} from './user/user.module';
 import {ArticleModule} from './article/article.module';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helper/fake-backend';
-import { MockBackend, MockConnection } from '@angular/http/testing';
+//import { fakeBackendProvider } from './helper/fake-backend';
+//import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 import { ContactusComponent } from './contactus/contactus.component';
 
@@ -38,9 +38,10 @@ import { ContactusComponent } from './contactus/contactus.component';
   ],
   providers: [
     // providers used to create fake backend
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions],
+  //  fakeBackendProvider,
+   // MockBackend,
+    //BaseRequestOptions
+  ],
   bootstrap: [AppComponent],
 
 })
