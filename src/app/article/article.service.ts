@@ -9,13 +9,13 @@ export class ArticleService {
   constructor(private http: Http) { }
 
   getArticles() {
-    return this.http.get("http://localhost:8000/api/lessons")
+    return this.http.get("http://localhost/api/lessons")
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
   }
 
   getArticle(id) {
-    return this.http.get("http://localhost:8000/api/lesson/" + id)
+    return this.http.get("http://localhost/api/lesson/" + id)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || "Server Error"));
   }
