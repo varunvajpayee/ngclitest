@@ -11,11 +11,12 @@ import { LayoutModule} from './layout/layout.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {CourseModule} from './course/course.module';
 import {UserModule} from './user/user.module';
+import {ContactModule} from './contact/contact.module';
 import {ArticleModule} from './article/article.module';
 
 // used to create fake backend
-//import { fakeBackendProvider } from './helper/fake-backend';
-//import { MockBackend, MockConnection } from '@angular/http/testing';
+// import { fakeBackendProvider } from './helper/fake-backend';
+// import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 import { ContactusComponent } from './contactus/contactus.component';
 
@@ -23,7 +24,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
-    AppComponent,PageNotFoundComponent, ContactusComponent
+    AppComponent, PageNotFoundComponent, ContactusComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     // providers used to create fake backend
   //  fakeBackendProvider,
    // MockBackend,
-    //BaseRequestOptions
+    // BaseRequestOptions
   ],
   bootstrap: [AppComponent],
 

@@ -1,19 +1,20 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from "@angular/core";
+import {ModuleWithProviders} from '@angular/core';
 import {PageNotFoundComponent} from './not-found.component';
-import { ContactusComponent } from './contactus/contactus.component';
+import {ContactusComponent} from './contactus/contactus.component';
 
 export const appRoutes: Routes = [
-  { path: '',
-    loadChildren:'app/layout/layout.module#LayoutModule'
+  {
+    path: '',
+    loadChildren: 'app/layout/layout.module#LayoutModule'
     , pathMatch: 'full'
-  },{
-    path:'contactus1',
-    component:ContactusComponent
+  }, {
+    path: 'contactus1',
+    component: ContactusComponent
   },
-  { path: '**', component: PageNotFoundComponent }
+  {path: '**', component: PageNotFoundComponent}
 ];
 
-export const appRoutingProviders:any[]=[];
+export const appRoutingProviders: any[] = [];
 
-export const routing: ModuleWithProviders=RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
