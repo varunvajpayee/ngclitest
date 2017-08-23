@@ -22,7 +22,13 @@ export class NewArticleComponent implements OnInit {
 
   save(article: any) {
     console.log(article);
-    this.articleService.saveArticle(article);
+    this.articleService.saveArticle(article).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   updateOutput(mdText: string) {

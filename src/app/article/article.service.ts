@@ -9,7 +9,7 @@ export class ArticleService {
   constructor(private http: Http) { }
 
   getArticles() {
-    return this.http.get("http://localhost/api/lessons")
+    return this.http.get("http://localhost/api/lessons",{ withCredentials: true })
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
   }
@@ -23,11 +23,11 @@ export class ArticleService {
   saveArticle(article:Article) {
     let bodyString = JSON.parse(JSON.stringify(article)); // Stringify payload
     let headers = new Headers([{ 'Content-Type': 'application/json' }]);
-    let options = new RequestOptions({ headers: headers }); // Create a request option
+    let options = new RequestOptions({ headers: headers,withCredentials: true  }); // Create a request option
 
     return this.http.post(environment.api_url+"/forum/saveTopic",bodyString,options)
       .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if an
   }
 
 }

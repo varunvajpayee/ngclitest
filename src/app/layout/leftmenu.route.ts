@@ -1,6 +1,8 @@
 import { Routes,RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import {HeaderComponent} from './header.component';
 import {ModuleWithProviders} from "@angular/core";
+import {ContactusComponent} from "../contactus/contactus.component";
 
 
 export const layoutRoutes: Routes = [
