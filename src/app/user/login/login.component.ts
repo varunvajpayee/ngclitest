@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.alertService.error(error);
+          console.log(error);
+          this.alertService.error('User not found');
           this.loading = false;
         });
   }

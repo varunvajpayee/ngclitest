@@ -9,25 +9,30 @@ export class ArticleService {
   constructor(private http: Http) { }
 
   getArticles() {
-    return this.http.get("http://localhost/api/lessons",{ withCredentials: true })
+    return this.http.get(environment.api_url+"/forum/getForumTopics",{  })
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
   }
 
   getArticle(id) {
-    return this.http.get("http://localhost/api/lesson/" + id)
+    return this.http.get(environment.api_url+"/forum/getForumTopic/" + id)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || "Server Error"));
   }
 
   saveArticle(article:Article) {
-    let bodyString = JSON.parse(JSON.stringify(article)); // Stringify payload
-    let headers = new Headers([{ 'Content-Type': 'application/json' }]);
-    let options = new RequestOptions({ headers: headers,withCredentials: true  }); // Create a request option
 
-    return this.http.post(environment.api_url+"/forum/saveTopic",bodyString,options)
-      .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if an
+    if(localStorage.getItem('currentUser')){
+     let userId=JSON.parse(localStorage.getItem('currentUser')).properties.userId;
+      article.userName = JSON.parse(localStorage.getItem('currentUser')).properties.userName;;
+
+      let headers: Headers = new Headers({'Content-Type': 'application/json'  });
+      let options: RequestOptions = new RequestOptions({ headers: headers })
+
+      return this.http.post(environment.api_url+"/forum/saveTopic", JSON.stringify(article),options)
+        .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+        .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if an
+    }
   }
 
 }

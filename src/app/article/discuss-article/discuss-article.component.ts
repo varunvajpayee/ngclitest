@@ -1,46 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { MarkdownParserService } from '../../service/markdown-parser.service';
 import { ArticleService } from '../article.service';
 import { Article } from '../article';
 import {AlertService} from "app/service/alert.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute, ParamMap} from "@angular/router";
+import 'rxjs/add/operator/switchMap';
+import {Observable} from "rxjs/Observable";
 
 @Component({
-  selector: 'app-new-article',
-  templateUrl: './new-article.component.html',
-  styleUrls: ['./new-article.component.scss'],
-  providers: [ MarkdownParserService,ArticleService ]
+  selector: 'app-discuss-article',
+  templateUrl: './discuss-article.component.html'
 })
-export class NewArticleComponent implements OnInit {
+export class DiscussArticleComponent implements OnInit {
 
-  convertedText: string;
   article: Article;
+  article$: Observable<Article>;
   pageIdentifier:String;
   pageUrl:String;
-  constructor(private md: MarkdownParserService,private articleService: ArticleService,
-              private router: Router, private alertService: AlertService) { }
+  constructor(private articleService: ArticleService,
+              private router: Router, private alertService: AlertService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.article = new Article();
-    this.pageIdentifier = '12121';
-    this.pageUrl = 'http://brightanalyst.com/#/article/new';
-  }
-
-  save(article: any) {
-    console.log(article);
-    this.articleService.saveArticle(article).subscribe(
-      data => {
-        console.log(data);
-        this.alertService.success('Topic Posted', true);
-        this.router.navigate(['/articles']);
+    let id = this.route.snapshot.paramMap.get('id');
+    this.article$ = this.articleService.getArticle(id);
+    this.article$.subscribe(
+      article => {
+        this.article = article;
       },
-      error => {
-        console.log(error);
-      });
+      err => {
+        console.log(err);
+      }
+    );
+    this.pageIdentifier = id;
+    this.pageUrl = 'http://brightanalyst.com/#/article/discuss/'+id;
   }
 
-  updateOutput(mdText: string) {
-    this.convertedText = this.md.convert(mdText);
-  }
 
 }

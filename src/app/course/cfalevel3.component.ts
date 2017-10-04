@@ -20,10 +20,11 @@ export class Cfalevel3Component implements OnInit {
     if(localStorage.getItem('currentUser')){
       this.loginId=JSON.parse(localStorage.getItem('currentUser')).properties.userId;
     }
+    else {
+      this.loginId='USER_LOGGED_OUT';
+      this.router.navigate(['/login']);
+    }
 
-  /*  if(!this.loginId){
-      this.router.navigate(['/login'], );
-    }*/
     this.iframeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(environment.iframe_url+'?login='+this.loginId);//this.sanitizer.bypassSecurityTrustUrl('https://1-dot-testscoreservice.appspot.com/index.html?login='+this.loginId).toString();
   }
 

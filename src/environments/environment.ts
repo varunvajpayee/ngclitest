@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:1841',
-  iframe_url:'http://localhost:1841/smartcfaclienttouch/index.html',
+  api_url: 'http://localhost',
+  iframe_url:'http://localhost' +
+  '/index.html',
   server_url: 'http://localhost'
 };

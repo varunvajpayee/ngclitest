@@ -3,40 +3,39 @@
 	<div class="col-md-12">
 		<div class="component">
 			<div class="component-title">
-				<h2>All Articles</h2>
+				<h2>All Topics</h2>
 			</div>
 			<div class="table-responsive">
         <br/>
 				<table class="table">
 					<thead>
+            <th>Discuss</th>
 						<th>Posted By</th>
 						<th>Topic</th>
 						<th>Date Posted</th>
-						<th>Views</th>
-						<th>Edit</th>
+
 					</thead>
 					<tbody>
 						<tr *ngFor="let article of articles">
-							<td>
+							<!--<td>
 								<img class="circle responsive-img" src="https://avatars1.githubusercontent.com/u/3332224?v=3&s=460" />
-							</td>
+							</td>-->
+              <td>
+                <a routerLink="/article/discuss/{{ article.id }}" class="btn-floating"><i class="ion ion-ios-search">Discuss</i></a>
+              </td>
+							<td>{{ article.userName }}</td>
 							<td>{{ article.title }}</td>
-							<td>{{ article.created_at }}</td>
-							<td>{{ article.views }}</td>
-							<td>
-								<a routerLink="/article/edit/{{ article.id }}" class="btn-floating"><i class="ion ion-ios-search">Edit</i></a>
-							</td>
+							<td>{{ article.timeAsOff | date:'medium' }}</td>
+
 						</tr>
 					</tbody>
 				</table>
-
-
 
 			</div>
 
       <div class="topic-list-footer row">
         <div class="col-md-2">
-          <button routerLink="/article/new" class="btn">New Article</button>
+          <button routerLink="/article/new" class="btn">New Topic</button>
         </div>
 
         <div class="col-md-10">

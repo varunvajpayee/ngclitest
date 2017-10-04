@@ -13,7 +13,7 @@ export class ArticleComponent implements OnInit {
   constructor(private articleService: ArticleService) {
     articleService.getArticles().subscribe(
         articles => {
-          this.articles = articles.lessons.data;
+          this.articles = articles.topicSet;
         },
         err => {
           console.log(err);
