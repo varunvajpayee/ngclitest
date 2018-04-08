@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  api_url: 'https://1-dot-testscoreservice.appspot.com',
-  iframe_url:'https://1-dot-testscoreservice.appspot.com/index.html',
-  server_url: 'https://1-dot-testscoreservice.appspot.com'
+  //api_url: 'https://testscoreservice.appspot.com',
+  api_url: 'https://stoked-outlook-179704.appspot.com',
+  iframe_url:'https://stoked-outlook-179704.appspot.com/index.html',
+  server_url: 'https://stoked-outlook-179704.appspot.com'
 };

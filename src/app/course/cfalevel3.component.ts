@@ -25,7 +25,7 @@ export class Cfalevel3Component implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.iframeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(environment.iframe_url+'?login='+this.loginId);//this.sanitizer.bypassSecurityTrustUrl('https://1-dot-testscoreservice.appspot.com/index.html?login='+this.loginId).toString();
+    this.iframeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(environment.iframe_url+'?login='+this.loginId);
   }
 
 
